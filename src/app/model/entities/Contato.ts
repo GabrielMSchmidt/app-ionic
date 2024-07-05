@@ -1,6 +1,8 @@
 export default class Contato{
     private _nome: string;
     private _telefone: string;
+    private _email: string;
+    private _genero: number;
 
     constructor(nome: string, telefone: string){
         this._nome = nome;
@@ -18,5 +20,17 @@ export default class Contato{
     }
     public set telefone(value: string) {
         this._telefone = value;
+    }
+    public get email(): string {
+        return this._email;
+    }
+    public set email(value: string) {
+        this._email = value;
+    }
+    public get genero(): number {
+        return this._genero;
+    }
+    public set genero(value: number) {
+        this._genero = value;
     }
 }
