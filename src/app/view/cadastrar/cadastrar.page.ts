@@ -25,7 +25,7 @@ export class CadastrarPage implements OnInit {
       if (this.email){
         c.email = this.email;
       }
-      if (c.genero){
+      if (this.genero){
         c.genero = this.genero;
       }else{
         c.genero = 0;

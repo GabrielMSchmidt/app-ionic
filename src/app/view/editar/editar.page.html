@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agenda de Contatos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-toggle color="success" (ionChange)="habilitar()">Habilitar Edição</ion-toggle>
+  </ion-item>
+  
+  <ion-list>
+    <ion-item>
+      <ion-input [(ngModel)]="nome" label="Nome" placeholder="Insira o Nome" disabled="{{!edicao}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="telefone" type="number" label="Telefone" placeholder="Insira o Telefone" disabled="{{!edicao}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="email" label="Email" placeholder="Insira o Email" disabled="{{!edicao}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-select [(ngModel)]="genero" label="Gênero" placeholder="Selecione o Gênero" disabled="{{!edicao}}">
+        <ion-select-option value="0">Nâo Declarado</ion-select-option>
+        <ion-select-option value="1">Feminino</ion-select-option>
+        <ion-select-option value="2">Masculino</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button class="ion-margin-top" (click)="salvar()" expand="full" color="success" shape="round" disabled="{{!edicao}}">Salvar</ion-button>
+    <ion-button id="botao-excluir" class="ion-margin-top" (click)="excluir()" expand="full" color="danger" shape="round" disabled="{{!edicao}}">Excluir</ion-button>
+    <ion-alert
+      trigger="botao-excluir"
+      header="Alert!"
+      [buttons]="alertButtons"
+      (didDismiss)="setResult($event)"
+    ></ion-alert>
+  </ion-list>
+
+</ion-content>
+  
